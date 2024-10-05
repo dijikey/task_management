@@ -3,7 +3,7 @@ package org.application.core;
 import java.time.LocalDate;
 
 public class Task {
-    private int id = 0;
+    private int id;
     private String title = "New task";
     private String description = "";
     private boolean isComplete = false;

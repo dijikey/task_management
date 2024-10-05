@@ -6,7 +6,7 @@ import javafx.collections.ObservableList;
 import java.util.ArrayList;
 
 public class DataBase {
-    private ArrayList<Task> tasks = new ArrayList<>();
+    private final ArrayList<Task> tasks = new ArrayList<>();
 
     public void createTask() {
         this.tasks.add(new Task(tasks.size()));
