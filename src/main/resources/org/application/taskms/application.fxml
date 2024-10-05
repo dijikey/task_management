@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.application.taskms.TMSController">
+    <MenuBar VBox.vgrow="NEVER">
+        <Menu mnemonicParsing="false" text="File">
+            <MenuItem onAction="#chooseDataBase" mnemonicParsing="false" text="Open…"/>
+            <SeparatorMenuItem mnemonicParsing="false"/>
+            <MenuItem mnemonicParsing="false" text="Save" onAction="#saveDataBase"/>
+            <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Quit"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Task">
+            <MenuItem mnemonicParsing="false" text="New" onAction="#onNewFileButton"/>
+            <MenuItem mnemonicParsing="false" text="Delete" onAction="#onClickRemoveButton"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Info">
+            <MenuItem mnemonicParsing="false" text="About..."/>
+        </Menu>
+    </MenuBar>
+
+    <AnchorPane VBox.vgrow="ALWAYS">
+        <ListView fx:id="taskList" onMouseClicked="#onClickOfItem" prefHeight="375.0" prefWidth="200.0"/>
+        <Pane layoutX="200.0" prefHeight="375.0" prefWidth="440.0" fx:id="structurePane" visible="false">
+            <TextField fx:id="title" layoutX="14.0" layoutY="40.0" onAction="#updateTaskAttribute"/>
+            <CheckBox fx:id="isComplete" onAction="#updateTaskAttribute" alignment="CENTER" contentDisplay="CENTER" layoutX="163.0" layoutY="40.0"
+                      mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="25.0" prefWidth="25.0"
+                      selected="true">
+                <font>
+                    <Font name="System Bold" size="12.0"/>
+                </font>
+            </CheckBox>
+            <TextArea fx:id="description" onKeyTyped="#updateTaskAttribute" layoutX="15.0" layoutY="78.0" prefHeight="219.0" prefWidth="410.0"/>
+            <Label fx:id="info" layoutX="291.0" layoutY="361.0" prefHeight="17.0" prefWidth="149.0"/>
+        </Pane>
+    </AnchorPane>
+</VBox>
